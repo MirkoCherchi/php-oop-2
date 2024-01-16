@@ -13,9 +13,7 @@
 
     include 'AnimalShop.php';
 
-
     $animalShop = new AnimalShop();
-
 
     $output = $animalShop->getProdotti();
 

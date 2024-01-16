@@ -2,9 +2,9 @@
 
 class Prodotto
 {
-    protected $nome;
-    protected $prezzo;
-    protected $categoria;
+    public $nome;
+    public $prezzo;
+    public $categoria;
 
     public function __construct($nome, $prezzo, $categoria)
     {
@@ -31,7 +31,7 @@ class Prodotto
 
 class ProdottoAnimale extends Prodotto
 {
-    protected $tipoAnimale;
+    public $tipoAnimale;
 
     public function __construct($nome, $prezzo, $categoria, $tipoAnimale)
     {
@@ -45,14 +45,12 @@ class ProdottoAnimale extends Prodotto
     }
 }
 
-
 class AnimalShop
 {
-    protected $prodotti;
+    public $prodotti;
 
     public function __construct()
     {
-
         $this->prodotti[] = new ProdottoAnimale("Cibo per gatti", 10.99, "Cibo", "Gatto");
         $this->prodotti[] = new ProdottoAnimale("Giocattolo per cani", 15.99, "Giochi", "Cane");
         $this->prodotti[] = new ProdottoAnimale("Lettiera per gabbia", 8.49, "Accessori", "Uccello");
