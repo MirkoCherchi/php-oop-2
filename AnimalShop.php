@@ -54,7 +54,7 @@ class AnimalShop
 
     public function mostraProdotti()
     {
-        echo "<h1>Benvenuto nello Animal Shop!</h1>";
+        echo "<h1>Benvenuto nell' Animal Shop!</h1>";
         echo "<h2>Prodotti Disponibili:</h2>";
 
         foreach ($this->prodotti as $prodotto) {
