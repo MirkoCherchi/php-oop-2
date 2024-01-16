@@ -1,5 +1,3 @@
-<!-- index.php -->
-
 <!DOCTYPE html>
 <html lang="it">
 
@@ -12,13 +10,12 @@
 <body>
 
     <?php
-    // includi la classe
+
     include 'AnimalShop.php';
 
-    // crea un'istanza della classe AnimalShop
+
     $animalShop = new AnimalShop();
 
-    // mostra alcuni prodotti
     $animalShop->mostraProdotti();
     ?>
 

@@ -1,7 +1,5 @@
-<!-- AnimalShop.php -->
-
 <?php
-// classe base per i prodotti
+
 class Prodotto
 {
     protected $nome;
@@ -24,7 +22,7 @@ class Prodotto
     }
 }
 
-// classe ereditaria per i prodotti per animali
+
 class ProdottoAnimale extends Prodotto
 {
     protected $tipoAnimale;
@@ -41,14 +39,14 @@ class ProdottoAnimale extends Prodotto
     }
 }
 
-// classe per lo shop online
+
 class AnimalShop
 {
     protected $prodotti;
 
     public function __construct()
     {
-        // Inizializza alcuni prodotti di esempio
+
         $this->prodotti[] = new ProdottoAnimale("Cibo per gatti", 10.99, "Gatto");
         $this->prodotti[] = new ProdottoAnimale("Giocattolo per cani", 15.99, "Cane");
         $this->prodotti[] = new ProdottoAnimale("Lettiera per gabbia", 8.49, "Uccello");
@@ -69,4 +67,3 @@ class AnimalShop
         }
     }
 }
-?>
