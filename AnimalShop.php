@@ -4,11 +4,13 @@ class Prodotto
 {
     protected $nome;
     protected $prezzo;
+    protected $categoria;
 
-    public function __construct($nome, $prezzo)
+    public function __construct($nome, $prezzo, $categoria)
     {
         $this->nome = $nome;
         $this->prezzo = $prezzo;
+        $this->categoria = $categoria;
     }
 
     public function getNome()
@@ -20,16 +22,20 @@ class Prodotto
     {
         return $this->prezzo;
     }
-}
 
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+}
 
 class ProdottoAnimale extends Prodotto
 {
     protected $tipoAnimale;
 
-    public function __construct($nome, $prezzo, $tipoAnimale)
+    public function __construct($nome, $prezzo, $categoria, $tipoAnimale)
     {
-        parent::__construct($nome, $prezzo);
+        parent::__construct($nome, $prezzo, $categoria);
         $this->tipoAnimale = $tipoAnimale;
     }
 
@@ -47,23 +53,27 @@ class AnimalShop
     public function __construct()
     {
 
-        $this->prodotti[] = new ProdottoAnimale("Cibo per gatti", 10.99, "Gatto");
-        $this->prodotti[] = new ProdottoAnimale("Giocattolo per cani", 15.99, "Cane");
-        $this->prodotti[] = new ProdottoAnimale("Lettiera per gabbia", 8.49, "Uccello");
+        $this->prodotti[] = new ProdottoAnimale("Cibo per gatti", 10.99, "Cibo", "Gatto");
+        $this->prodotti[] = new ProdottoAnimale("Giocattolo per cani", 15.99, "Giochi", "Cane");
+        $this->prodotti[] = new ProdottoAnimale("Lettiera per gabbia", 8.49, "Accessori", "Uccello");
+        $this->prodotti[] = new ProdottoAnimale("Cuccia imbottita", 29.99, "Cucce", "Cane");
     }
 
-    public function mostraProdotti()
+    public function getProdotti()
     {
-        echo "<h1>Benvenuto nell' Animal Shop!</h1>";
-        echo "<h2>Prodotti Disponibili:</h2>";
+        $output = "<h1>Benvenuto nello Animal Shop!</h1>";
+        $output .= "<h2>Prodotti Disponibili:</h2>";
 
         foreach ($this->prodotti as $prodotto) {
-            echo "<p><strong>Nome:</strong> " . $prodotto->getNome() . "<br>";
-            echo "<strong>Prezzo:</strong> € " . $prodotto->getPrezzo() . "<br>";
+            $output .= "<p><strong>Nome:</strong> " . $prodotto->getNome() . "<br>";
+            $output .= "<strong>Prezzo:</strong> $" . $prodotto->getPrezzo() . "<br>";
+            $output .= "<strong>Categoria:</strong> " . $prodotto->getCategoria() . "<br>";
             if ($prodotto instanceof ProdottoAnimale) {
-                echo "<strong>Tipo Animale:</strong> " . $prodotto->getTipoAnimale() . "</p>";
+                $output .= "<strong>Tipo Animale:</strong> " . $prodotto->getTipoAnimale() . "</p>";
             }
-            echo "<hr>";
+            $output .= "<hr>";
         }
+
+        return $output;
     }
 }

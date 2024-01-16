@@ -16,7 +16,11 @@
 
     $animalShop = new AnimalShop();
 
-    $animalShop->mostraProdotti();
+
+    $output = $animalShop->getProdotti();
+
+    // stampa l'output nell'HTML
+    echo $output;
     ?>
 
 </body>
