@@ -1,60 +1,27 @@
-<?php
+<!-- index.php -->
 
-class Prodotto
-{
-    protected $nome;
-    protected $prezzo;
-    protected $categoria;
+<!DOCTYPE html>
+<html lang="it">
 
-    public function __construct($nome, $prezzo, $categoria)
-    {
-        $this->nome = $nome;
-        $this->prezzo = $prezzo;
-        $this->categoria = $categoria;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Shop</title>
+</head>
 
-    public function getNome()
-    {
-        return $this->nome;
-    }
+<body>
 
-    public function getPrezzo()
-    {
-        return $this->prezzo;
-    }
+    <?php
+    // includi la classe
+    include 'AnimalShop.php';
 
-    public function getCategoria()
-    {
-        return $this->categoria;
-    }
-}
-class Categoria
-{
-    protected $nome;
+    // crea un'istanza della classe AnimalShop
+    $animalShop = new AnimalShop();
 
-    public function __construct($nome)
-    {
-        $this->nome = $nome;
-    }
+    // mostra alcuni prodotti
+    $animalShop->mostraProdotti();
+    ?>
 
-    public function getNome()
-    {
-        return $this->nome;
-    }
-}
-class NegozioOnline
-{
-    protected $prodotti = [];
+</body>
 
-    public function aggiungiProdotto(Prodotto $prodotto)
-    {
-        $this->prodotti[] = $prodotto;
-    }
-
-    public function visualizzaProdotti()
-    {
-        foreach ($this->prodotti as $prodotto) {
-            echo "Nome: " . $prodotto->getNome() . ", Prezzo: " . $prodotto->getPrezzo() . "€, Categoria: " . $prodotto->getCategoria() . "<br>";
-        }
-    }
-}
+</html>
