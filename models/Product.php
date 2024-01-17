@@ -12,11 +12,12 @@ class Product
     private $image;
     private $is_available;
 
-    public function __construct($id, $name, Category $category)
+    public function __construct($id, $image, $name, Category $category)
     {
         $this->setId($id);
         $this->setName($name);
         $this->setCategory($category);
+        $this->setImage($image);
     }
 
     //Getters
