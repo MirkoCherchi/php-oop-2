@@ -1,3 +1,7 @@
 body {
   background-color: antiquewhite;
 }
+
+.strong {
+  font-weight: bold;
+}

@@ -1,12 +1,14 @@
 <?php
 
 require_once __DIR__ . "/Category.php";
+require_once __DIR__ . "/../Traits/DescriptionTrait.php"; // Aggiunta del trait
+
 class Product
 {
+    use DescribableTrait; // Utilizzo del trait
 
     private $id;
     private $name;
-    private $description;
     private $category;
     private $price;
     private $image;

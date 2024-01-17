@@ -12,6 +12,7 @@ $uccelli = new Category('Uccello', '<i class="fa-solid fa-crow"></i>');
 $gabbia_uccello = new Product(100, 'https://arcaplanet.vtexassets.com/arquivos/ids/265344/gabbia-per-uccelli-mosca1.jpg?v=637726721456030000', '€ 39.50', 'Gabbia', $uccelli);
 $cibo_cane = new Food(259, 'https://arcaplanet.vtexassets.com/arquivos/ids/267123/hi-beef-adult-10kg.jpg?v=637806850286130000', '€ 45', 'Cibo', $cani);
 $cibo_cane->set_ingredients('Pollo, Verdure');
+$cibo_cane->setDescription('Questo è un cibo per cani con carne di manzo');
 $Palla_gatto = new Game(357, 'https://arcaplanet.vtexassets.com/arquivos/ids/209753/YES--pallina-in-corda-65cm.jpg?v=637413991274900000', '€ 6.99', 'Gioco', $gatti);
 $Palla_gatto->set_material('Lana');
 
@@ -61,10 +62,21 @@ $products = [
                                 <?php echo $product->getName(); ?>
                             </h5>
                             <div>
-                                <p>Categoria: <?php echo $product->getCategory()->getName(); ?> <?php echo $product->getCategory()->getIcon(); ?></p>
-                                <p>Prezzo: <?php echo $product->getPrice(); ?> </p>
+                                <p><span class="strong">Categoria:</span> <?php echo $product->getCategory()->getName(); ?> <?php echo $product->getCategory()->getIcon(); ?></p>
+                                <p><span class="strong">Prezzo: </span> <?php echo $product->getPrice(); ?> </p>
+
+                                <?php if (method_exists($product, 'getDescription')) : ?>
+                                    <?php $description = $product->getDescription(); ?>
+                                    <?php if ($description !== null && $description !== '') : ?>
+                                        <p><span class="strong">Descrizione: </span> <?php echo $description; ?></p>
+                                    <?php else : ?>
+                                        <p><span class="strong">Descrizione: </span> Nessuna descrizione per questo articolo</p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             </div>
-                            <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-primary">Aggiungi al Carrello</a>
+                            </div>
                         </div>
                     </div>
                     <!-- /Card -->
